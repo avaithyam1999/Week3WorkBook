@@ -21,7 +21,7 @@ public class FamousQuotes {
         quotes[9] = "Do something today that your future self will thank you for.";
 
         while (running) {
-            System.out.println("Select a number 1-10 for your quote: \n\nEnter 0 to quit");
+            System.out.println("Select a number 1-10 for your quote \nOr for a random quote, type 'random' \nEnter 0 to quit: ");
             String userInput = scanner.nextLine();
 
             if (userInput.trim().equals("0")) {
@@ -36,7 +36,7 @@ public class FamousQuotes {
                 try {
                     System.out.printf("Your selected quote is: \n%s\n", (quotes[matchedQuote]));
                 } catch (Exception e) {
-                    System.out.println("I said 1-10 dummy. \nTry again.");
+                    System.out.println("I said 1-10 dummy. \nTry again.\n");
                 }
             }
         }

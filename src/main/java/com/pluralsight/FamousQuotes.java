@@ -39,19 +39,6 @@ public class FamousQuotes {
                     System.out.println("I said 1-10 dummy. \nTry again.");
                 }
             }
-//            int userNumber = Integer.parseInt(userInput);
-//            int matchedQuote = userNumber - 1;
-//
-//            if (userNumber != 0) {
-//                try {
-//
-//                }
-//            } else if (userInput.equalsIgnoreCase("random")) {
-//                int randomNum = (int) Math.random() * quotes.length;
-//                System.out.printf("Your random quote is: \n", quotes[randomNum]);
-//            } else {
-//                running = false;
-//            }
         }
 
     }

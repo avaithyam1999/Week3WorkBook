@@ -35,11 +35,12 @@ public class FamousQuotes {
                 int matchedQuote = userNumber - 1;
                 try {
                     System.out.printf("Your selected quote is: \n%s\n", (quotes[matchedQuote]));
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("I said 1-10 dummy. \nTry again.\n");
                 }
             }
         }
-
+        scanner.close();
     }
 }

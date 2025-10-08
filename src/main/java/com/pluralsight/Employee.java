@@ -6,6 +6,13 @@ public class Employee {
     private double hoursWorked;
     private double payRate;
 
+    public Employee() {
+        this.employeeId = 0;
+        this.name = "";
+        this.hoursWorked = 0;
+        this.payRate = 0;
+    }
+
     public Employee(int employeeId, String name, double hoursWorked, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
@@ -15,6 +22,10 @@ public class Employee {
 
     public int getEmployeeId() {
         return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getName() {
@@ -40,8 +51,20 @@ public class Employee {
     public void setPayRate(double payRate) {
         this.payRate = payRate;
     }
+
     public double getGrossPay() {
         double grossPay = this.getHoursWorked() * this.getPayRate();
         return grossPay;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Employee{");
+        sb.append("employeeId=").append(employeeId);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", hoursWorked=").append(hoursWorked);
+        sb.append(", payRate=").append(payRate);
+        sb.append('}');
+        return sb.toString();
     }
 }

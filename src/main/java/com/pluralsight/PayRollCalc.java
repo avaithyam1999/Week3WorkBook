@@ -1,12 +1,30 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-
 public class PayRollCalc {
     public static void main(String[] args) throws FileNotFoundException {
+        readEmployeeFiles();
+        try {
+            // create a FileWriter
+            FileWriter fileWriter = new FileWriter("report.txt", true);
+            // create a BufferedWriter
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            // write to the file
+            bufferedWriter.write("line 1 is here \n");
+            bufferedWriter.write("line 2 is here \n");
+            bufferedWriter.write("line 3 is here \n");
+            // close the writer
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: An unexpected error occurred");
+            e.getStackTrace();
+        }
+    }
+
+    private static void readEmployeeFiles() {
         try {
             FileReader fileReader = new FileReader("employees.csv");
             BufferedReader buffReader = new BufferedReader(fileReader);
@@ -18,7 +36,6 @@ public class PayRollCalc {
                 Employee employee = new Employee();
                 String[] parts = line.split("\\|");
                 setParts(employee, parts);
-                System.out.printf("ID: %d\nName: %s\nHours Worked: %.2f\nPay Rate: %.2f\nGross Pay: %.2f\n\n",employee.getEmployeeId(),employee.getName(),employee.getHoursWorked(),employee.getPayRate(),employee.getGrossPay());
             }
             buffReader.close();
         } catch (IOException e) {
@@ -32,5 +49,15 @@ public class PayRollCalc {
         employee.setHoursWorked(Double.parseDouble(parts[2]));
         employee.setPayRate(Double.parseDouble(parts[3]));
         employee.getGrossPay();
+        System.out.printf("ID: %d\nName: %s\nHours Worked: %.2f\nPay Rate: %.2f\nGross Pay: %.2f\n\n",
+                employee.getEmployeeId(),
+                employee.getName(),
+                employee.getHoursWorked(),
+                employee.getPayRate(),
+                employee.getGrossPay());
+
     }
 }
+
+
+
